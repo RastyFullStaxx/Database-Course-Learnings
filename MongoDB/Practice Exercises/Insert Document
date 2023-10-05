@@ -1,0 +1,5 @@
+db.products.insertOne({
+  name: "Smartphone",
+  price: 499.99,
+  category: "Electronics"
+});
