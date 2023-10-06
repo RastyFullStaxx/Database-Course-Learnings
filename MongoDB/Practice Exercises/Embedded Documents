@@ -1,0 +1,8 @@
+db.orders.insertOne({
+  customerName: "John Doe",
+  orderDate: new Date(),
+  products: [
+    { name: "Smartphone", quantity: 2 },
+    { name: "Laptop", quantity: 1 }
+  ]
+});
