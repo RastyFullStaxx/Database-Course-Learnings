@@ -1,0 +1,4 @@
+db.orders.updateOne(
+  { customerName: "John Doe" },
+  { $push: { products: { name: "Tablet", quantity: 3 } } }
+);
