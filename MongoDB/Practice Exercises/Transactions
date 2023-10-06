@@ -1,0 +1,23 @@
+const session = db.getMongo().startSession();
+session.startTransaction();
+
+try {
+  db.orders.updateOne(
+    { customerName: "John Doe" },
+    { $pull: { products: { name: "Laptop" } } },
+    { session }
+  );
+
+  db.orders.updateOne(
+    { customerName: "Jane Smith" },
+    { $push: { products: { name: "Laptop", quantity: 1 } } },
+    { session }
+  );
+
+  session.commitTransaction();
+} catch (error) {
+  print("Transaction failed. Rolling back.");
+  session.abortTransaction();
+} finally {
+  session.endSession();
+}
