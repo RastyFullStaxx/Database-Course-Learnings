@@ -1,0 +1,3 @@
+db.comments.createIndex({ text: "text" });
+
+db.comments.find({ $text: { $search: "your keyword" } });
