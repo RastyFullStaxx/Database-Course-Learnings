@@ -1,0 +1,7 @@
+var bulk = db.imported_products.initializeUnorderedBulkOp();
+
+bulk.insert({ name: "Product A", price: 199 });
+bulk.insert({ name: "Product B", price: 299 });
+bulk.insert({ name: "Product C", price: 399 });
+
+bulk.execute();
