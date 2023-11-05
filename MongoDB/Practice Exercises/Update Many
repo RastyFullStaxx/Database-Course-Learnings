@@ -1,0 +1,4 @@
+db.imported_products.updateMany(
+  { category: "Electronics" },
+  { $mul: { price: 1.1 } }
+);
