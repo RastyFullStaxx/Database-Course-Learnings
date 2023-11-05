@@ -1,0 +1,10 @@
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "products",
+      localField: "productId",
+      foreignField: "_id",
+      as: "orderDetails"
+    }
+  }
+]);
