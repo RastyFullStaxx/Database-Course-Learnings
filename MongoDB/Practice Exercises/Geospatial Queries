@@ -1,0 +1,10 @@
+db.locations.createIndex({ location: "2dsphere" });
+
+db.locations.find({
+  location: {
+    $near: {
+      $geometry: { type: "Point", coordinates: [longitude, latitude] },
+      $maxDistance: 1000  // Specify the maximum distance in meters
+    }
+  }
+});
