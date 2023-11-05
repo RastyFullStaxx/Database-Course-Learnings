@@ -1,0 +1,1 @@
+mongoimport --db yourDB --collection imported_products --type csv --file products.csv --headerline
