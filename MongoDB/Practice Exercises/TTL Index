@@ -1,0 +1,3 @@
+db.logs.createIndex({ "createdAt": 1 }, { expireAfterSeconds: 3600 });
+
+// Insert documents with "createdAt" field to see them expire after an hour.
