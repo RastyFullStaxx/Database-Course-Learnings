@@ -1,0 +1,18 @@
+db.locations.aggregate([
+  {
+    $geoNear: {
+      near: {
+        type: "Point",
+        coordinates: [referenceLongitude, referenceLatitude]
+      },
+      distanceField: "distance",
+      spherical: true
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      averageDistance: { $avg: "$distance" }
+    }
+  }
+]);
