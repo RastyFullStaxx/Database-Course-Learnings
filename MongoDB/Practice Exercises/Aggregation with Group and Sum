@@ -1,0 +1,8 @@
+db.imported_products.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalRevenue: { $sum: "$price" }
+    }
+  }
+]);
