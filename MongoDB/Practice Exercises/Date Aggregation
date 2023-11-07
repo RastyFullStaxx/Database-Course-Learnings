@@ -1,0 +1,8 @@
+db.orders.aggregate([
+  {
+    $group: {
+      _id: { $month: "$orderDate" },
+      count: { $sum: 1 }
+    }
+  }
+]);
