@@ -1,0 +1,1 @@
+mongoexport --db yourDB --collection imported_products --out exported_products.json
