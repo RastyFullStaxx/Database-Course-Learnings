@@ -1,0 +1,9 @@
+db.blog_posts.aggregate([
+  { $unwind: "$tags" },
+  {
+    $group: {
+      _id: "$tags",
+      count: { $sum: 1 }
+    }
+  }
+]);
