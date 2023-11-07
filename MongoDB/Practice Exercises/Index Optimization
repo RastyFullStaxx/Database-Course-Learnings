@@ -1,0 +1,2 @@
+db.yourCollection.find({ someField: "someValue" }).explain("executionStats");
+db.yourCollection.createIndex({ someField: 1 });
