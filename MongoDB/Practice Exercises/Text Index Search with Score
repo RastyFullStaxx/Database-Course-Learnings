@@ -1,0 +1,6 @@
+db.searchable_content.createIndex({ content: "text" });
+
+db.searchable_content.find(
+  { $text: { $search: "specific keyword" } },
+  { score: { $meta: "textScore" } }
+).sort({ score: { $meta: "textScore" } });
