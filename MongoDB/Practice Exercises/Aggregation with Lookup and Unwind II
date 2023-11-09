@@ -1,0 +1,11 @@
+db.blog_posts.aggregate([
+  {
+    $lookup: {
+      from: "comments",
+      localField: "_id",
+      foreignField: "postId",
+      as: "postComments"
+    }
+  },
+  { $unwind: "$postComments" }
+]);
