@@ -1,0 +1,11 @@
+db.imported_products.aggregate([
+  {
+    $bucketAuto: {
+      groupBy: "$price",
+      buckets: 5,
+      output: {
+        count: { $sum: 1 }
+      }
+    }
+  }
+]);
