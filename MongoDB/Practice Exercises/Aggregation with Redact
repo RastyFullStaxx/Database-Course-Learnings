@@ -1,0 +1,11 @@
+db.sensitive_data.aggregate([
+  {
+    $redact: {
+      $cond: {
+        if: { $eq: ["$accessLevel", "admin"] },
+        then: "$$KEEP",
+        else: "$$PRUNE"
+      }
+    }
+  }
+]);
