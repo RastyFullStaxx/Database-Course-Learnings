@@ -1,0 +1,8 @@
+db.sales.aggregate([
+  {
+    $group: {
+      _id: "$productId",
+      runningTotal: { $sum: "$quantity" }
+    }
+  }
+]);
