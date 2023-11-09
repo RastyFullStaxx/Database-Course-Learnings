@@ -1,0 +1,4 @@
+const oneWeekAgo = new Date();
+oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+db.orders.find({ orderDate: { $gte: oneWeekAgo } });
