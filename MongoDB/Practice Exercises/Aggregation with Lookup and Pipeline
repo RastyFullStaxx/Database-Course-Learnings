@@ -1,0 +1,12 @@
+db.users.aggregate([
+  {
+    $lookup: {
+      from: "comments",
+      let: { userId: "$_id" },
+      pipeline: [
+        { $match: { $expr: { $eq: ["$userId", "$$userId"] } } }
+      ],
+      as: "userComments"
+    }
+  }
+]);
