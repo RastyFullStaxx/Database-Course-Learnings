@@ -1,0 +1,4 @@
+db.orders.aggregate([
+  { $unwind: "$items" },
+  { $replaceRoot: { newRoot: "$items" } }
+]);
