@@ -1,0 +1,9 @@
+db.blog_posts.aggregate([
+  {
+    $group: {
+      _id: "$_id",
+      title: { $first: "$title" },
+      comments: { $push: "$comments" }
+    }
+  }
+]);
