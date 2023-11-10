@@ -1,0 +1,9 @@
+SELECT customer_name, product_name, quantity
+FROM (
+    SELECT customer_name, product_name, quantity,
+           ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY quantity DESC) AS row_num
+    FROM customers
+    JOIN orders ON customers.customer_id = orders.customer_id
+    JOIN order_details ON orders.order_id = order_details.order_id
+) AS ranked_products
+WHERE row_num <= 3;
