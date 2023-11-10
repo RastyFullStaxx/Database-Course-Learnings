@@ -1,0 +1,9 @@
+SELECT product_name, quantity,
+    CASE
+        WHEN quantity > LAG(quantity, 1, 0) OVER (PARTITION BY product_id ORDER BY order_date) THEN 'Increase'
+        WHEN quantity < LAG(quantity, 1, 0) OVER (PARTITION BY product_id ORDER BY order_date) THEN 'Decrease'
+        ELSE 'No Change'
+    END AS sales_trend
+FROM order_details
+JOIN products ON order_details.product_id = products.product_id
+ORDER BY product_name, order_date;
