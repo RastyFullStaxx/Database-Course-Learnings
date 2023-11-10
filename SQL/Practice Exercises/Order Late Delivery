@@ -1,0 +1,3 @@
+SELECT order_id, order_date, expected_delivery_date, actual_delivery_date
+FROM orders
+WHERE actual_delivery_date > expected_delivery_date;
