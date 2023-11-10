@@ -1,0 +1,4 @@
+SELECT order_id, expected_delivery_date, actual_delivery_date,
+    TIMESTAMPDIFF(DAY, expected_delivery_date, actual_delivery_date) AS delay_days
+FROM orders
+WHERE actual_delivery_date > expected_delivery_date;
